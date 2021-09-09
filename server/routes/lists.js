@@ -1,6 +1,6 @@
 const Router = require("express").Router();
 const List = require("../models/List");
-const verifyToken = require("../verifyToken");
+const verifyToken = require("../middleWheres/verifyToken");
 
 // create
 Router.post("/", verifyToken, (req, res) => {

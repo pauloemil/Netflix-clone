@@ -1,7 +1,7 @@
 const Router = require("express").Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
-const verifyToken = require("../verifyToken");
+const verifyToken = require("../middleWheres/verifyToken");
 
 // update
 Router.put("/:id", verifyToken, (req, res) => {
