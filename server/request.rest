@@ -1,0 +1,38 @@
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "username":"buglow",
+    "password": "password",
+    "email":"paulo@hotmail.com"
+}
+
+###
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    
+    "password": "password",
+    "email":"paulo.busy@hotmail.com"
+}
+
+
+###
+
+PUT http://localhost:3000/api/user/61388cb837258e091802f998
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMzg4Y2I4MzcyNThlMDkxODAyZjk5OCIsImlzQWRtaW4iOiJmYWxzZSIsImlhdCI6MTYzMTEwMTg3NCwiZXhwIjoxNjMxNTMzODc0fQ.iKOkVp0qlUfslFrwirrDTCgwG-ABiFDodCX93172hg4
+
+{
+    "username": "buglow",
+    "password": "password",
+    "email":"paulo.busy@hotmail.com"
+}
+
+###
+
+GET http://localhost:3000/api/user/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMzljYzNkMmYyNzNkZTU2ZDk1ODc4ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTE3Nzg5MCwiZXhwIjoxNjMxNjA5ODkwfQ.JW5b-p63IP9SoeTJxjmlXTa5NqBynzrdqb0YBPUO4c0
