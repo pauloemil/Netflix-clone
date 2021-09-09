@@ -10,12 +10,11 @@ const listSchema = mongoose.Schema(
     type: {
       type: String,
     },
-
     genre: {
       type: String,
     },
     content: {
-      Type: Array,
+      type: [String],
     },
   },
   { timestamps: true }

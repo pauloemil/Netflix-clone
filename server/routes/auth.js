@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 //Register
 Router.post("/register", (req, res) => {
-  console.log(123, req.body);
+  // console.log(123, req.body);
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
