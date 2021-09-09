@@ -20,6 +20,7 @@ Router.put("/:id", verifyToken, (req, res) => {
       { new: true },
       (err, updatedUser) => {
         if (err) res.json({ usersRoutePUT: err.message });
+        else if (!updatedUser) res.sendStatus(404);
         else res.json(updatedUser);
       }
     );
@@ -27,17 +28,20 @@ Router.put("/:id", verifyToken, (req, res) => {
     res.sendStatus(401);
   }
 });
+
 // delete
 Router.delete("/:id", verifyToken, (req, res) => {
   if (req.user.id === req.params.id || req.user.isAdmin) {
-    User.findByIdAndDelete(req.params.id, (err) => {
+    User.findByIdAndDelete(req.params.id, (err, deletedUser) => {
       if (err) res.json({ usersRouteDELETE: err.message });
+      else if (!deletedUser) res.sendStatus(404);
       else res.sendStatus(200);
     });
   } else {
     res.sendStatus(401);
   }
 });
+
 // get
 Router.get("/find/:id", verifyToken, (req, res) => {
   if (req.user.id === req.params.id || req.user.isAdmin) {
@@ -50,6 +54,7 @@ Router.get("/find/:id", verifyToken, (req, res) => {
     res.sendStatus(401);
   }
 });
+
 // get all
 Router.get("/", verifyToken, (req, res) => {
   const query = req.query.new;
@@ -65,6 +70,7 @@ Router.get("/", verifyToken, (req, res) => {
     res.sendStatus(401);
   }
 });
+
 // get user stats
 Router.get("/stats", verifyToken, (req, res) => {
   const today = new Date();

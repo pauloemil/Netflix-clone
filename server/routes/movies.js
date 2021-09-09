@@ -1,6 +1,5 @@
 const Router = require("express").Router();
 const Movie = require("../models/Movie");
-const CryptoJS = require("crypto-js");
 const verifyToken = require("../verifyToken");
 
 // create
@@ -24,6 +23,7 @@ Router.put("/:id", verifyToken, (req, res) => {
       { new: true },
       (err, updatedMovie) => {
         if (err) res.json({ moviesRouteUpdate: err.message });
+        else if (!movie) res.sendStatus(404);
         else res.json(updatedMovie);
       }
     );
@@ -35,8 +35,9 @@ Router.put("/:id", verifyToken, (req, res) => {
 // delete
 Router.delete("/:id", verifyToken, (req, res) => {
   if (req.user.isAdmin) {
-    Movie.findByIdAndDelete(req.params.id, (err) => {
+    Movie.findByIdAndDelete(req.params.id, (err, deletedMovie) => {
       if (err) res.json({ movieRouteDELETE: err.message });
+      else if (!deletedMovie) res.sendStatus(404);
       else res.sendStatus(200);
     });
   } else {
@@ -73,9 +74,10 @@ Router.get("/random", verifyToken, (req, res) => {
       { $match: { isSeries: type === "series" ? true : false } },
       { $sample: { size: 1 } },
     ],
-    (err, movies) => {
+    (err, movie) => {
       if (err) res.json({ movieRouteGETAll: err.message });
-      else res.json(movies);
+      else if (!movie) res.sendStatus(404);
+      else res.json(movie);
     }
   );
 });
