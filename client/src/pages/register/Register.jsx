@@ -15,6 +15,7 @@ const Register = () => {
             alt="logo"
             className="logo"
           />
+
           <button className="loginButton">Sign In</button>
         </div>
       </div>

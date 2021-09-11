@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Login.scss";
 // import { useState } from "react";
 
@@ -19,9 +20,14 @@ const Login = () => {
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
           <button className="loginButton">Sign In</button>
+
           <span>
-            New to Netflix? <b>Sign up now.</b>
+            New to Netflix?{" "}
+            <Link to="/register" className="link">
+              <b>Sign up now.</b>
+            </Link>
           </span>
+
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a
             bot. <b>Learn more</b>.

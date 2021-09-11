@@ -4,10 +4,16 @@ import {
   ArrowForwardIosOutlined,
 } from "@material-ui/icons";
 import ListItem from "../listItem/ListItem";
-import { useRef, useState } from "react";
-const List = () => {
+import { useEffect, useRef, useState } from "react";
+
+const List = ({ list }) => {
+  const [items, setitems] = useState([]);
   const listRef = useRef();
   const [slideNumber, setslideNumber] = useState(0);
+
+  useEffect(() => {
+    setitems(list.content);
+  }, [list]);
 
   const handleClick = (direction) => {
     console.log(slideNumber, 0);
@@ -26,23 +32,16 @@ const List = () => {
   };
   return (
     <div className="list">
-      <span className="listTitle">Continue to watch</span>
+      <span className="listTitle">{list.title}</span>
       <div className="wrapper">
         <ArrowBackIosOutlined
           className="sliderArrow left"
           onClick={(e) => handleClick("left")}
         />
         <div className="container" ref={listRef}>
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
+          {items.map((item) => (
+            <ListItem item={item} key={item} />
+          ))}
         </div>
         <ArrowForwardIosOutlined
           className="sliderArrow right"
