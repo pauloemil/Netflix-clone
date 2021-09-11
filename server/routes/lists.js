@@ -38,11 +38,11 @@ Router.get("/", verifyToken, (req, res) => {
       {
         $match:
           typeQ && genreQ
-            ? { type: typeQuery, genre: genreQuery }
+            ? { type: typeQ, genre: genreQ }
             : typeQ
-            ? { type: typeQuery }
+            ? { type: typeQ }
             : genreQ
-            ? { genre: genreQuery }
+            ? { genre: genreQ }
             : {},
       },
     ],
