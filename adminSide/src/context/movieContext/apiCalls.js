@@ -20,7 +20,9 @@ export const getMovies = (dispatch) => {
     .get("/movie", {
       headers: {
         Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("user")).accessToken
+          localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user")).accessToken
+            : null
         }`,
       },
     })
@@ -38,7 +40,9 @@ export const deleteAMovie = (id, dispatch) => {
     .delete(`/movie/${id}`, {
       headers: {
         Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("user")).accessToken
+          localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user")).accessToken
+            : null
         }`,
       },
     })
@@ -58,7 +62,9 @@ export const createMovie = (movie, dispatch) => {
     .post("/movie", movie, {
       headers: {
         Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("user")).accessToken
+          localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user")).accessToken
+            : null
         }`,
       },
     })
@@ -78,7 +84,9 @@ export const updateMovie = (movie, dispatch) => {
     .put(`/movie/${movie._id}`, movie, {
       headers: {
         Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("user")).accessToken
+          localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user")).accessToken
+            : null
         }`,
       },
     })

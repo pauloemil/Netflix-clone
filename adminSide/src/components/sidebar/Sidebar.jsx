@@ -31,11 +31,11 @@ export default function Sidebar() {
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Analytics
+              Analytics(not working)
             </li>
             <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
-              Sales
+              Sales(not working)
             </li>
           </ul>
         </div>
@@ -45,7 +45,7 @@ export default function Sidebar() {
             <Link to="/users" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Users
+                Users(not working)
               </li>
             </Link>
             <Link to="/movies" className="link">
@@ -56,11 +56,11 @@ export default function Sidebar() {
             </Link>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
-              Transactions
+              Transactions(not working)
             </li>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
-              Reports
+              Reports(not working)
             </li>
           </ul>
         </div>
@@ -69,15 +69,15 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <MailOutline className="sidebarIcon" />
-              Mail
+              Mail(not working)
             </li>
             <li className="sidebarListItem">
               <DynamicFeed className="sidebarIcon" />
-              Feedback
+              Feedback(not working)
             </li>
             <li className="sidebarListItem">
               <ChatBubbleOutline className="sidebarIcon" />
-              Messages
+              Messages(not working)
             </li>
           </ul>
         </div>
@@ -86,15 +86,15 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <WorkOutline className="sidebarIcon" />
-              Manage
+              Manage(not working)
             </li>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Analytics
+              Analytics(not working)
             </li>
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
-              Reports
+              Reports(not working)
             </li>
           </ul>
         </div>

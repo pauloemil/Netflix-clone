@@ -11,7 +11,11 @@ export default function WidgetSm() {
     axios
       .get("/user?new=true", {
         headers: {
-          Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMzljYzNkMmYyNzNkZTU2ZDk1ODc4ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTE3Nzg5MCwiZXhwIjoxNjMxNjA5ODkwfQ.JW5b-p63IP9SoeTJxjmlXTa5NqBynzrdqb0YBPUO4c0"}`,
+          Authorization: `Bearer ${
+            localStorage.getItem("user")
+              ? JSON.parse(localStorage.getItem("user")).accessToken
+              : null
+          }`,
         },
       })
       .then((resp) => {
