@@ -23,7 +23,7 @@ Router.put("/:id", verifyToken, (req, res) => {
       { new: true },
       (err, updatedMovie) => {
         if (err) res.json({ moviesRouteUpdate: err.message });
-        else if (!movie) res.sendStatus(404);
+        else if (!updatedMovie) res.sendStatus(404);
         else res.json(updatedMovie);
       }
     );
