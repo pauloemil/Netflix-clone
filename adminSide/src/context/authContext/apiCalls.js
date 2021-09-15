@@ -18,6 +18,7 @@ export const login = (user, dispatch) => {
     .catch(dispatch(loginFailure));
 };
 export const logout = (dispatch) => {
-  //   console.log("here");
+  localStorage.setItem("user", null);
+  // console.log(localStorage);
   dispatch(logoutStart);
 };
