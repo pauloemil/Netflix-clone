@@ -1,22 +1,23 @@
 import { Link, useParams } from "react-router-dom";
-import "./product.css";
+import "./ListItem.css";
 // import Chart from "../../components/chart/Chart";
 // import { productData } from "../../dummyData";
 import { useEffect, useState, useContext } from "react";
 import axios from "../../axios";
 import { CircularProgress } from "@material-ui/core";
-import { updateMovie } from "../../context/movieContext/apiCalls";
-import { MovieContext } from "../../context/movieContext/MovieContext";
-export default function Product() {
-  const { movieID } = useParams();
+// import { upda } from "../../context/listContext/apiCalls";
+import { ListContext } from "../../context/listContext/ListContext";
+export default function ListItem() {
+  const { listID } = useParams();
   // console.log(movieID);
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(true);
   const [err, setError] = useState(null);
-  const { dispatch } = useContext(MovieContext);
+  const { dispatch } = useContext(ListContext);
+
   useEffect(() => {
     axios
-      .get(`/movie/find/${movieID}`, {
+      .get(`/list/find/${listID}`, {
         headers: {
           Authorization: `Bearer ${
             JSON.parse(localStorage.getItem("user")).accessToken
@@ -33,7 +34,7 @@ export default function Product() {
         setLoading(false);
         setError("There is an error please try again!");
       });
-  }, [movieID]);
+  }, [listID]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -41,7 +42,8 @@ export default function Product() {
   };
   const updateHandle = (e) => {
     e.preventDefault();
-    updateMovie(movie, dispatch);
+    console.log("updae handle call");
+    // updateMovie(movie, dispatch);
   };
   return loading ? (
     <CircularProgress />
@@ -49,7 +51,7 @@ export default function Product() {
     <div className="product">
       <div className="productTitleContainer">
         <h1 className="productTitle">Movie</h1>
-        <Link to="/newmovie">
+        <Link to="/newlist">
           <button className="productAddButton">Create</button>
         </Link>
       </div>
