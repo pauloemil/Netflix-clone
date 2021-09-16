@@ -21,7 +21,7 @@ export default function WidgetSm() {
       .then((resp) => {
         setisLoading(false);
         setusersData(resp.data);
-        console.log(resp.data);
+        // console.log(resp.data);
       })
       .catch((err) => {
         setisLoading(false);
